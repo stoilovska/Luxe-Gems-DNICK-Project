@@ -11,7 +11,7 @@ class Jewelry(models.Model):
     price = models.IntegerField()
     available = models.BooleanField(null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    image = models.ImageField()
+    image = models.ImageField(upload_to='jewelry/')
     size = models.IntegerField()
     large = models.IntegerField()
     category = models.CharField(max_length=250)

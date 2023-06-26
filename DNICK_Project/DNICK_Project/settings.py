@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-%4$yg#*5_f3&^tp(dj6_gd+zaue2!#&n8g$1&-gu*)@7#+(ze(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -121,8 +121,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# MEDIA_ROOT = os.path.join(BASE_DIR, "jewelry/")
-# MEDIA_URL = '/jewelry/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "DNICK_Project/jewelry/")
+MEDIA_URL = 'DNICK_Project/jewelry/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
