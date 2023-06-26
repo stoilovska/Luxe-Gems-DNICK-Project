@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Luxe Gems</title>
+
+    <style>
+        .slika {
+            background: url("https://static.thenounproject.com/png/3662808-200.png") center no-repeat;
+            background-size: cover;
+            margin-top: 11px;
+            height: 30px;
+            width: 30px;
+        }
+
+        #manuContainer {
+            background-color: #0cd3ff;
+            height: 60px;
+            text-align: center;
+            margin-top: 17px;
+        }
+
+        .menuItem {
+            padding-top: 17px !important;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-11">
+            <a href="{% url 'home' %}" style="text-decoration: none; color: black;">
+                <h1 class="text-center ms-5">Luxe Gems</h1>
+            </a>
+        </div>
+        <div class="col-1">
+            <a href="{% url 'card' %}" title="cart">
+                <div class="slika"></div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="manuContainer">
+    <div class="row">
+        <div class="col">
+            <a href="{% url 'home' %}" style="text-decoration: none; color: white">
+                <h4 class="menuItem">ПОЧЕТНА</h4>
+            </a>
+        </div>
+        <div class="col">
+            <a href="{% url 'rings' %}" style="text-decoration: none; color: white">
+                <h4 class="menuItem">ПРСТЕНИ</h4>
+            </a>
+        </div>
+        <div class="col">
+            <a href="{% url 'bracelets' %}" style="text-decoration: none; color: white">
+                <h4 class="menuItem">БЕЛЕГЗИИ</h4>
+            </a>
+        </div>
+        <div class="col">
+            <a href="{% url 'watches' %}" style="text-decoration: none; color: white">
+                <h4 class="menuItem">ЧАСОВНИЦИ</h4>
+            </a>
+        </div>
+        <div class="col">
+            <a href="{% url 'charms' %}" style="text-decoration: none; color: white">
+                <h4 class="menuItem">ПРИВРЗОЦИ</h4>
+            </a>
+        </div>
+        <div class="col">
+            <a href="{% url 'earrings' %}" style="text-decoration: none; color: white">
+                <h4 class="menuItem">ОБЕТКИ</h4>
+            </a>
+        </div>
+        <div class="col">
+            <a href="{% url 'login' %}" style="text-decoration: none; color: white">
+                <h4 class="menuItem">НАЈАВИ СЕ</h4>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<div class="container" style="height: 300px; margin-top: 30px;">
+    <div class="row" style="width: 1340px; margin-left: -20px !important">
+        <div class="col">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100"
+                             style="height: 300px; background-size: cover;object-fit: cover;"
+                             src="https://cms-live.pandora.net/resource/responsive-image/1118986/m37-hybrid-plp-hero-module/xs/3/high-q1-val20-model-galentines-03-rgb.jpg"
+                             alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100"
+                             style="height: 300px; background-size: cover;object-fit: cover;"
+                             src="https://larimarmagic.com/wp-content/uploads/2019/06/web-slider-Abstract_Blue_Wave_Background-1.jpg"
+                             alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100"
+                             style="height: 300px; background-size: cover;object-fit: cover;"
+                             src="https://www.graceandcojewellery.co.uk/images/cms/sections/1635251352-32558900.jpg"
+                             alt="Third slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-3 border-0">
+    <div class="row">
+        {% for item in jewelry %}
+            <div class="col">
+                <div class="card flex-row border-0" style="width: 37rem;">
+                    <img src="{{ MEDIA_URL }}{{ item.image.url }}"
+                         class="card-img-left example-card-img-responsive mb-5" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.name }}</h5>
+                        <p class="card-text">{{ item.description }}</p>
+                        <a href="{% url 'detail' item.id %}" style="background-color: #0cd3ff; "
+                           class="btn rounded-5 text-light">Повеќе детали</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="container" style="margin-top: -2px">
+    <div class="row">
+        <div class="col">
+            <footer>
+                <hr style="color: #0cd3ff;">
+                <div style="margin-top: -7px; text-align: center; justify-content: center;" class="text-secondary">2023</div>
+            </footer>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
